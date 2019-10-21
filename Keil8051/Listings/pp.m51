@@ -1,0 +1,170 @@
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                    08/19/2019  19:14:27  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22.2.0, INVOKED BY:
+C:\KEIL_V5\C51\BIN\BL51.EXE .\Objects\STARTUP.obj, .\Objects\main.obj, .\Objects\hal.obj, .\Objects\behavior.obj TO .\Ob
+>> jects\pp PRINT (.\Listings\pp.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\STARTUP.obj (?C_STARTUP)
+  .\Objects\main.obj (MAIN)
+  .\Objects\hal.obj (HAL)
+  .\Objects\behavior.obj (BEHAVIOR)
+  C:\KEIL_V5\C51\LIB\C51S.LIB (?C?ULCMP)
+
+
+LINK MAP OF MODULE:  .\Objects\pp (?C_STARTUP)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0004H     UNIT         _DATA_GROUP_
+            IDATA   000CH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     0037H     UNIT         ?PR?PAUSA500MS?HAL
+            CODE    0837H     0018H     UNIT         ?PR?BEHAVIOR?BEHAVIOR
+            CODE    084FH     0011H     UNIT         ?C?LIB_CODE
+            CODE    0860H     000CH     UNIT         ?C_C51STARTUP
+            CODE    086CH     0006H     UNIT         ?PR?_LED?HAL
+            CODE    0872H     0003H     UNIT         ?PR?MAIN?MAIN
+            CODE    0875H     0001H     UNIT         ?PR?INITHAL?HAL
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\pp (?C_STARTUP)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?BEHAVIOR?BEHAVIOR
+
+?PR?BEHAVIOR?BEHAVIOR          -----    -----
+  +--> ?PR?INITHAL?HAL
+  +--> ?PR?_LED?HAL
+  +--> ?PR?PAUSA500MS?HAL
+
+?PR?PAUSA500MS?HAL             0008H    0004H
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/19/2019  19:14:27  PAGE 2
+
+
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\pp (?C_STARTUP)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        ?C_STARTUP
+  C:0860H         SEGMENT       ?C_C51STARTUP
+  I:000CH         SEGMENT       ?STACK
+  C:0000H         PUBLIC        ?C_STARTUP
+  D:00E0H         SYMBOL        ACC
+  D:00F0H         SYMBOL        B
+  D:0083H         SYMBOL        DPH
+  D:0082H         SYMBOL        DPL
+  N:0000H         SYMBOL        IBPSTACK
+  N:0100H         SYMBOL        IBPSTACKTOP
+  N:0080H         SYMBOL        IDATALEN
+  C:0863H         SYMBOL        IDATALOOP
+  N:0000H         SYMBOL        PBPSTACK
+  N:0100H         SYMBOL        PBPSTACKTOP
+  N:0000H         SYMBOL        PDATALEN
+  N:0000H         SYMBOL        PDATASTART
+  N:0000H         SYMBOL        PPAGE
+  N:0000H         SYMBOL        PPAGEENABLE
+  D:00A0H         SYMBOL        PPAGE_SFR
+  D:0081H         SYMBOL        SP
+  C:0860H         SYMBOL        STARTUP1
+  N:0000H         SYMBOL        XBPSTACK
+  N:0000H         SYMBOL        XBPSTACKTOP
+  N:0000H         SYMBOL        XDATALEN
+  N:0000H         SYMBOL        XDATASTART
+  C:0000H         LINE#         126
+  C:0860H         LINE#         133
+  C:0862H         LINE#         134
+  C:0863H         LINE#         135
+  C:0864H         LINE#         136
+  C:0866H         LINE#         185
+  C:0869H         LINE#         196
+  -------         ENDMOD        ?C_STARTUP
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0872H         PUBLIC        main
+  -------         PROC          MAIN
+  C:0872H         LINE#         3
+  C:0872H         LINE#         4
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        HAL
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:0090H.0       PUBLIC        P1_0
+  C:086CH         PUBLIC        _LED
+  C:0875H         PUBLIC        InitHAL
+  C:0800H         PUBLIC        Pausa500ms
+BL51 BANKED LINKER/LOCATER V6.22.2.0                                                  08/19/2019  19:14:27  PAGE 3
+
+
+  -------         PROC          INITHAL
+  C:0875H         LINE#         4
+  C:0875H         LINE#         5
+  -------         ENDPROC       INITHAL
+  -------         PROC          _LED
+  D:0007H         SYMBOL        state
+  C:086CH         LINE#         7
+  C:086CH         LINE#         8
+  C:0871H         LINE#         9
+  -------         ENDPROC       _LED
+  -------         PROC          PAUSA500MS
+  -------         DO            
+  D:0008H         SYMBOL        x
+  -------         ENDDO         
+  C:0800H         LINE#         11
+  C:0800H         LINE#         13
+  C:0836H         LINE#         14
+  -------         ENDPROC       PAUSA500MS
+  -------         ENDMOD        HAL
+
+  -------         MODULE        BEHAVIOR
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0837H         PUBLIC        behavior
+  -------         PROC          BEHAVIOR
+  C:0837H         LINE#         4
+  C:0837H         LINE#         5
+  C:083AH         LINE#         6
+  C:083AH         LINE#         7
+  C:083FH         LINE#         8
+  C:0842H         LINE#         9
+  C:0845H         LINE#         10
+  C:084AH         LINE#         11
+  C:084DH         LINE#         12
+  -------         ENDPROC       BEHAVIOR
+  -------         ENDMOD        BEHAVIOR
+
+  -------         MODULE        ?C?ULCMP
+  C:084FH         PUBLIC        ?C?ULCMP
+  -------         ENDMOD        ?C?ULCMP
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0068H BYTE ( 5%) *
+******************************************************************************
+
+Program Size: data=13.0 xdata=0 code=121
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

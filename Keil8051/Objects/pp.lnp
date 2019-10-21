@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\main.obj",
+".\Objects\hal.obj",
+".\Objects\behavior.obj" 
+TO ".\Objects\pp" 
+PRINT(".\Listings\pp.m51") RAMSIZE(256) 

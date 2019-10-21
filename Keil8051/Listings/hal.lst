@@ -1,0 +1,38 @@
+C51 COMPILER V9.57.0.0   HAL                                                               08/19/2019 19:14:27 PAGE 1   
+
+
+C51 COMPILER V9.57.0.0, COMPILATION OF MODULE HAL
+OBJECT MODULE PLACED IN .\Objects\hal.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE hal.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\hal.l
+                    -st) TABS(2) OBJECT(.\Objects\hal.obj)
+
+line level    source
+
+   1          #include "../common/hal.h"
+   2          #include <REGX52.H>
+   3          
+   4          void InitHAL(){
+   5   1      }
+   6          
+   7          void LED(boolean state){
+   8   1        P1_0  = state;
+   9   1      }
+  10          
+  11          void Pausa500ms(){
+  12   1        uint32 x;
+  13   1        for(x=0;x<400000;x++);
+  14   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     62    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
