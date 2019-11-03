@@ -2,6 +2,9 @@
 #define SM1_H
 
 #include "sm.h"
+#include "chronometer.h"
+#include "datatypes.h"
+#include "hal.h"
 
 STATE(sm1_init);
 STATE(sm1_enchendo);
