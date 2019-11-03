@@ -15,8 +15,9 @@ STATE(sm1_init){
 }
 
 STATE(sm1_enchendo){
-    v1(TRUE);
-
+    if(JUST_ARRIVED){
+        v1(TRUE);
+    }
     if(s12())
         NEXT_STATE(sm1_parado);
 }
