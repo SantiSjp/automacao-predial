@@ -50,15 +50,50 @@ void MainWindow::AtualizaInterface(){
 
 void MainWindow::ProcessoFisico(){
 
-    if(pin_v1)
+    // Enche o tanque 1 se a valvula ligar
+    if(pin_v1){
         nivelTanque1 += .15; // Válvula V1 sempre ligada
+        if(nivelTanque1>100)
+            nivelTanque1 = 100; // Certifica que não transborde
+    }
 
-    if(nivelTanque1>100)
-        nivelTanque1 = 100; // Certifica que não transborde
+    // enche o tanque 2 se a bomba e pin_s11 estiverem ligados
+    if(pin_b1){
+        if(nivelTanque1<0.05){
+            nivelTanque2 += nivelTanque1;
+            nivelTanque1 = 0;
+        }else{
+            nivelTanque1 -= 0.05;
+            nivelTanque2 += 0.05;
+        }
+        if(nivelTanque2>100)
+           nivelTanque2 = 100;
+        if(nivelTanque1 < 0)
+            nivelTanque1 = 0;
+    }
 
-    pin_s11 = nivelTanque1 >= 10;
-    pin_s12 = nivelTanque1 >= 90;
+    // Consumir tanque 1
+    if(ui->checkBox_consumoTanque1->isChecked()){
+        nivelTanque1 -= 0.5;
+        if(nivelTanque1 < 0)
+            nivelTanque1 = 0;
+    }
 
+    // Consumir tanque 2
+    if(ui->checkBox_consumoTanque2->isChecked()){
+        nivelTanque2 -= 0.5;
+        if(nivelTanque2 < 0)
+            nivelTanque2 = 0;
+    }
+
+
+    // liga sensores
+    pin_s11 = (nivelTanque1 >= 10);
+    pin_s12 = (nivelTanque1 >= 90);
+    pin_s21 = (nivelTanque2 >= 10);
+    pin_s22 = (nivelTanque2 >= 90);
+
+ /*
     //nivelTanque1 -= .05;    // Simulando um consumo
     if(nivelTanque1<0)
         nivelTanque1=0;     // Certifica que não tenha valor negativo
@@ -73,14 +108,14 @@ void MainWindow::ProcessoFisico(){
         nivelTanque2 = 100; // Certifica que não transborde
 
 
-    pin_s21 = nivelTanque2 >= 10;
-    pin_s22 = nivelTanque2 >= 90;
+    //pin_s21 = nivelTanque2 >= 10;
+    //pin_s22 = nivelTanque2 >= 90;
     nivelTanque2 -= .05;    // Simulando um consumo
 
 
     if(nivelTanque2<0)
         nivelTanque2=0; // Certifica que não tenha valor negativo
-
+*/
 
 
 }
