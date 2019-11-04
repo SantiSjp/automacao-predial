@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-double nivelTanque1 = 100;
-double nivelTanque2 = 100;
+double nivelTanque1 = 0;
+double nivelTanque2 = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -50,21 +50,27 @@ void MainWindow::AtualizaInterface(){
 
 void MainWindow::ProcessoFisico(){
 
+    // liga sensores
+    pin_s11 = (nivelTanque1 >= 10);
+    pin_s12 = (nivelTanque1 >= 90);
+    pin_s21 = (nivelTanque2 >= 10);
+    pin_s22 = (nivelTanque2 >= 90);
+
     // Enche o tanque 1 se a valvula ligar
     if(pin_v1){
-        nivelTanque1 += .15; // Válvula V1 sempre ligada
+        nivelTanque1 += .05; // Válvula V1 sempre ligada
         if(nivelTanque1>100)
             nivelTanque1 = 100; // Certifica que não transborde
     }
 
     // enche o tanque 2 se a bomba e pin_s11 estiverem ligados
     if(pin_b1){
-        if(nivelTanque1<0.05){
+        if(nivelTanque1<.05){
             nivelTanque2 += nivelTanque1;
             nivelTanque1 = 0;
         }else{
-            nivelTanque1 -= 0.05;
-            nivelTanque2 += 0.05;
+            nivelTanque1 -= 0.15;
+            nivelTanque2 += 0.15;
         }
         if(nivelTanque2>100)
            nivelTanque2 = 100;
@@ -86,36 +92,6 @@ void MainWindow::ProcessoFisico(){
             nivelTanque2 = 0;
     }
 
-
-    // liga sensores
-    pin_s11 = (nivelTanque1 >= 10);
-    pin_s12 = (nivelTanque1 >= 90);
-    pin_s21 = (nivelTanque2 >= 10);
-    pin_s22 = (nivelTanque2 >= 90);
-
- /*
-    //nivelTanque1 -= .05;    // Simulando um consumo
-    if(nivelTanque1<0)
-        nivelTanque1=0;     // Certifica que não tenha valor negativo
-
-
-    if(pin_b1){            // Simula a bomba para encher tanque 2
-        nivelTanque2 += .15;
-        nivelTanque1 -= .15;
-    }
-
-    if(nivelTanque2>100)
-        nivelTanque2 = 100; // Certifica que não transborde
-
-
-    //pin_s21 = nivelTanque2 >= 10;
-    //pin_s22 = nivelTanque2 >= 90;
-    nivelTanque2 -= .05;    // Simulando um consumo
-
-
-    if(nivelTanque2<0)
-        nivelTanque2=0; // Certifica que não tenha valor negativo
-*/
 
 
 }

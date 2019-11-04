@@ -15,9 +15,10 @@ STATE(sm2_init){
 }
 
 STATE(sm2_enchendo){
-    b1(TRUE);
-
-    if(s22())
+    if(JUST_ARRIVED){
+        b1(TRUE);
+    }
+    if(s22() || !s11())
         NEXT_STATE(sm2_parado);
 }
 
