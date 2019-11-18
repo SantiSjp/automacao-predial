@@ -23,7 +23,7 @@ STATE(sm1_enchendo){
 
 STATE(sm1_parado){
     if(JUST_ARRIVED){
-        START(5000); //chronoStart(&sm1_chrono, 5000);
+        START(3000); //chronoStart(&sm1_chrono, 5000);
         v1(FALSE);
     }
 

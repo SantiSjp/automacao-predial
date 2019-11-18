@@ -47,7 +47,7 @@ void v2(boolean state){
 }
 
 void b1(boolean state){
- pin_b1 = state;
+ pin_b1 = FALSE;
 }
 
 boolean s21(){

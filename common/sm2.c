@@ -24,7 +24,7 @@ STATE(sm2_enchendo){
 
 STATE(sm2_parado){
     if(JUST_ARRIVED){
-        START(5000); //chronoStart(&sm2_chrono, 5000);
+        START(3000); //chronoStart(&sm2_chrono, 5000);
         b1(FALSE);
     }
 

@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 
 double nivelTanque1 = 0;
-double nivelTanque2 = 0;
+double nivelTanque2 = 50;
 double nivelTanque3 = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -88,32 +88,23 @@ void MainWindow::ProcessoFisico(){
             nivelTanque1 = 0;
     }
 
-    //nivelTanque3 += 0.05;
+
 
     // Atividade 2
     if(pin_v2){
         if(nivelTanque2 > nivelTanque3/2){ // altura do tanque 2 maior que tanque 3 -> agua vai para tanque 3
-            if(nivelTanque2<0.1){
-                nivelTanque3 += (4*nivelTanque2);
-                nivelTanque2 = 0;
-            }
-            else{
+
                 nivelTanque2 -= 0.1;
                 nivelTanque3 += 0.4;
-            }
 
             if(nivelTanque3>100) nivelTanque3 = 100;
             if(nivelTanque2<0) nivelTanque2 = 0;
         }
         if(nivelTanque2 < nivelTanque3/2){ // altura do tanque 3 maior que tanque 2 -> agua vai para tanque 2
-            if(nivelTanque3<0.4){
-                nivelTanque2 += (nivelTanque3/4);
-                nivelTanque3 = 0;
-            }
-            else{
+
                 nivelTanque3 -= 0.4;
                 nivelTanque2 += 0.1;
-            }
+           // }
             if(nivelTanque2>100) nivelTanque2 = 100;
             if(nivelTanque3<0) nivelTanque3 = 0;
         }
