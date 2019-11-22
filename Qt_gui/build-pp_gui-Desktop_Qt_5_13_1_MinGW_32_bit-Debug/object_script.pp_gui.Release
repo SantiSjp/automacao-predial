@@ -1,0 +1,10 @@
+release/sm2.o
+release/sm3.o
+release/main.o
+release/mainwindow.o
+release/behavior.o
+release/hal.o
+release/threadbehavior.o
+release/chronometer.o
+release/sm1.o
+release/moc_mainwindow.o

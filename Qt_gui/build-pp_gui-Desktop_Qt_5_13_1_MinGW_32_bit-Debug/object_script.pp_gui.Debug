@@ -1,0 +1,10 @@
+debug/sm2.o
+debug/sm3.o
+debug/main.o
+debug/mainwindow.o
+debug/behavior.o
+debug/hal.o
+debug/threadbehavior.o
+debug/chronometer.o
+debug/sm1.o
+debug/moc_mainwindow.o

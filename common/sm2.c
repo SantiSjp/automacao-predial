@@ -3,30 +3,31 @@
 #include "chronometer.h"
 
 StateMachine sm2;
-chronometer sm2_chrono;
+
 
 STATE(sm2_init){
     b1(FALSE);  // Desliga a bomba
 
-    if(s22())
+    if(s22() || !s11())
         NEXT_STATE(sm2_parado);
     else
         NEXT_STATE(sm2_enchendo);
 }
 
 STATE(sm2_enchendo){
-    b1(TRUE);
-
-    if(s22())
+    if(JUST_ARRIVED){
+        b1(TRUE);
+    }
+    if(s22() || !s11())
         NEXT_STATE(sm2_parado);
 }
 
 STATE(sm2_parado){
     if(JUST_ARRIVED){
-        chronoStart(&sm2_chrono, 5000);
+        START(3000); //chronoStart(&sm2_chrono, 5000);
         b1(FALSE);
     }
 
-    if(!s22() && chronoIsFinished(&sm2_chrono))
+    if(!s22() && s11() && IS_FINISHED) // chronoIsFinished(&sm2_chrono)
         NEXT_STATE(sm2_enchendo);
 }
