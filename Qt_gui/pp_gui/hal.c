@@ -11,6 +11,8 @@ boolean pin_s21;
 boolean pin_s22;
 boolean pin_s31;
 boolean pin_s32;
+double Temperatura;
+boolean pin_resistencia;
 
 void InitHAL(){
    /*
@@ -47,7 +49,7 @@ void v2(boolean state){
 }
 
 void b1(boolean state){
- pin_b1 = FALSE;
+ pin_b1 = state;
 }
 
 boolean s21(){
@@ -65,4 +67,13 @@ boolean s31(){
 boolean s32(){
    return pin_s32;
 }
+
+double sensor_temp(){
+    return Temperatura;
+}
+
+void resistencia(boolean valor){
+    pin_resistencia = valor;
+}
+
 

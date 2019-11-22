@@ -19,4 +19,8 @@ boolean s22();
 boolean s31();
 boolean s32();
 
+double sensor_temp();
+
+void resistencia(boolean valor);
+
 #endif
