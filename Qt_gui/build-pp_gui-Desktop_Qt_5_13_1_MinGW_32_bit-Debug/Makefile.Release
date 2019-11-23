@@ -549,7 +549,8 @@ release/behavior.o: ../../common/behavior.c ../../common/behavior.h \
 		../../common/sm.h \
 		../../common/chronometer.h \
 		../../common/sm2.h \
-		../../common/sm3.h
+		../../common/sm3.h \
+		../../common/sm4.h
 	$(CC) -c $(CFLAGS) $(INCPATH) -o release\behavior.o ..\..\common\behavior.c
 
 release/hal.o: ../pp_gui/hal.c ../../common/hal.h \

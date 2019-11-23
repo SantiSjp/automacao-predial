@@ -41,7 +41,7 @@ extern boolean pin_s22;
 extern boolean pin_s31;
 extern boolean pin_s32;
 extern boolean pin_resistencia;
-extern double Temperatura = 25;
+extern double Temperatura = 45;
 
 void MainWindow::AtualizaInterface(){
     ui->checkBox_v1->setChecked(pin_v1);
@@ -114,13 +114,17 @@ void MainWindow::ProcessoFisico(){
         }
     }
 
-
+    // Atividade 3
     if(pin_resistencia){
         if(Temperatura<100) Temperatura = Temperatura + 0.01;
     }
-    else
+    else{
         if(Temperatura>25) Temperatura = Temperatura - 0.01;
+    }
 
+    if(pin_resistencia && pin_v2){
+        Temperatura -= 0.005;
+    }
 
 
     // Consumir tanque 1
