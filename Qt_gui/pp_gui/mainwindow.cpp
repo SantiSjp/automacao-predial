@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-double nivelTanque1 = 0;
-double nivelTanque2 = 50;
+double nivelTanque1 = 100;
+double nivelTanque2 = 100;
 double nivelTanque3 = 0;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -40,6 +40,8 @@ extern boolean pin_s21;
 extern boolean pin_s22;
 extern boolean pin_s31;
 extern boolean pin_s32;
+extern boolean pin_resistencia;
+extern double Temperatura = 45;
 
 void MainWindow::AtualizaInterface(){
     ui->checkBox_v1->setChecked(pin_v1);
@@ -54,6 +56,8 @@ void MainWindow::AtualizaInterface(){
     ui->checkBox_s31->setChecked(pin_s31);
     ui->checkBox_s32->setChecked(pin_s32);
     ui->progressBar_Tanque3->setValue(nivelTanque3);
+    ui->checkBox_resistencia->setChecked(pin_resistencia);
+    ui->lcdNumber_temperatura->display(Temperatura);
 }
 
 void MainWindow::ProcessoFisico(){
@@ -110,6 +114,17 @@ void MainWindow::ProcessoFisico(){
         }
     }
 
+    // Atividade 3
+    if(pin_resistencia){
+        if(Temperatura<100) Temperatura = Temperatura + 0.01;
+    }
+    else{
+        if(Temperatura>25) Temperatura = Temperatura - 0.01;
+    }
+
+    if(pin_resistencia && pin_v2){
+        Temperatura -= 0.005;
+    }
 
 
     // Consumir tanque 1

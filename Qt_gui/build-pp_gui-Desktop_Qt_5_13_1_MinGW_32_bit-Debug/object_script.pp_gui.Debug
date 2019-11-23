@@ -1,5 +1,6 @@
 debug/sm2.o
 debug/sm3.o
+debug/sm4.o
 debug/main.o
 debug/mainwindow.o
 debug/behavior.o

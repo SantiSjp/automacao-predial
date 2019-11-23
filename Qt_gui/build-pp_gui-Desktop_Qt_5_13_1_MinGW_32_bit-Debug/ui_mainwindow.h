@@ -12,6 +12,7 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCheckBox>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -44,6 +45,8 @@ public:
     QCheckBox *checkBox_consumoT3;
     QLabel *label_3;
     QCheckBox *checkBox_v2;
+    QCheckBox *checkBox_resistencia;
+    QLCDNumber *lcdNumber_temperatura;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -93,32 +96,38 @@ public:
         checkBox_b1->setGeometry(QRect(170, 120, 31, 17));
         checkBox_consumoT1 = new QCheckBox(centralWidget);
         checkBox_consumoT1->setObjectName(QString::fromUtf8("checkBox_consumoT1"));
-        checkBox_consumoT1->setGeometry(QRect(80, 240, 111, 19));
+        checkBox_consumoT1->setGeometry(QRect(50, 250, 111, 19));
         checkBox_consumoT2 = new QCheckBox(centralWidget);
         checkBox_consumoT2->setObjectName(QString::fromUtf8("checkBox_consumoT2"));
-        checkBox_consumoT2->setGeometry(QRect(210, 240, 111, 19));
+        checkBox_consumoT2->setGeometry(QRect(200, 250, 111, 19));
         progressBar_Tanque3 = new QProgressBar(centralWidget);
         progressBar_Tanque3->setObjectName(QString::fromUtf8("progressBar_Tanque3"));
-        progressBar_Tanque3->setGeometry(QRect(400, 115, 41, 95));
+        progressBar_Tanque3->setGeometry(QRect(400, 105, 41, 95));
         progressBar_Tanque3->setMaximum(100);
         progressBar_Tanque3->setValue(100);
         progressBar_Tanque3->setTextVisible(false);
         progressBar_Tanque3->setOrientation(Qt::Vertical);
         checkBox_s32 = new QCheckBox(centralWidget);
         checkBox_s32->setObjectName(QString::fromUtf8("checkBox_s32"));
-        checkBox_s32->setGeometry(QRect(450, 120, 41, 17));
+        checkBox_s32->setGeometry(QRect(450, 110, 41, 17));
         checkBox_s31 = new QCheckBox(centralWidget);
         checkBox_s31->setObjectName(QString::fromUtf8("checkBox_s31"));
-        checkBox_s31->setGeometry(QRect(450, 190, 41, 16));
+        checkBox_s31->setGeometry(QRect(450, 180, 41, 16));
         checkBox_consumoT3 = new QCheckBox(centralWidget);
         checkBox_consumoT3->setObjectName(QString::fromUtf8("checkBox_consumoT3"));
-        checkBox_consumoT3->setGeometry(QRect(340, 240, 111, 19));
+        checkBox_consumoT3->setGeometry(QRect(360, 250, 111, 19));
         label_3 = new QLabel(centralWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
-        label_3->setGeometry(QRect(400, 100, 47, 13));
+        label_3->setGeometry(QRect(400, 90, 47, 13));
         checkBox_v2 = new QCheckBox(centralWidget);
         checkBox_v2->setObjectName(QString::fromUtf8("checkBox_v2"));
         checkBox_v2->setGeometry(QRect(320, 120, 31, 17));
+        checkBox_resistencia = new QCheckBox(centralWidget);
+        checkBox_resistencia->setObjectName(QString::fromUtf8("checkBox_resistencia"));
+        checkBox_resistencia->setGeometry(QRect(400, 210, 81, 19));
+        lcdNumber_temperatura = new QLCDNumber(centralWidget);
+        lcdNumber_temperatura->setObjectName(QString::fromUtf8("lcdNumber_temperatura"));
+        lcdNumber_temperatura->setGeometry(QRect(390, 60, 64, 23));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
@@ -154,6 +163,7 @@ public:
         checkBox_consumoT3->setText(QCoreApplication::translate("MainWindow", "consumir tanque 3", nullptr));
         label_3->setText(QCoreApplication::translate("MainWindow", "Tanque 3", nullptr));
         checkBox_v2->setText(QCoreApplication::translate("MainWindow", "V2", nullptr));
+        checkBox_resistencia->setText(QCoreApplication::translate("MainWindow", "resistencia", nullptr));
     } // retranslateUi
 
 };

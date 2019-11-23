@@ -26,6 +26,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     ../../common/sm2.c \
     ../../common/sm3.c \
+    ../../common/sm4.c \
         main.cpp \
         mainwindow.cpp \
     ../../common/behavior.c \
@@ -37,6 +38,7 @@ SOURCES += \
 HEADERS += \
     ../../common/sm2.h \
     ../../common/sm3.h \
+    ../../common/sm4.h \
         mainwindow.h \
     ../../common/behavior.h \
     ../../common/datatypes.h \

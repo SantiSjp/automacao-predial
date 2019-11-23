@@ -1,5 +1,6 @@
 release/sm2.o
 release/sm3.o
+release/sm4.o
 release/main.o
 release/mainwindow.o
 release/behavior.o
